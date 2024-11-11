@@ -39,3 +39,17 @@ set full_name = UPPER(full_name);
 Update  club_member_info_cleaned 
 set full_name = TRIM(full_name);
 ```
+
+#### Update blank martial_status by Null
+```SQL
+Update club_member_info_cleaned 
+set martial_status = 'NULL' WHERE martial_status =''
+```
+
+#### update blank job_title as Null
+```SQL
+Update club_member_info_cleaned 
+set job_title = 'NULL' WHERE martial_status =''
+```
+
+
