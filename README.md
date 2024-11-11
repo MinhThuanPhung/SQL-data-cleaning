@@ -1,9 +1,15 @@
 # SQL-data-cleaning
 This is an educational project on data cleaning and preparation using SQL. The original database in CSV format is located in the file club_member_info.csv. Here, we will explore the steps that need to be applied to obtain a cleansed version of the dataset.
 
+
+### Data before cleaned
 ```sql
 SELECT * from club_member_info cmi limit 10;
 ```
+
+
+
+
 
 
 |full_name|age|martial_status|email|phone|full_address|job_title|membership_date|
@@ -19,3 +25,17 @@ SELECT * from club_member_info cmi limit 10;
 |mendie alexandrescu|46|single|malexandrescu8@state.gov|504-918-4753|34 Delladonna Terrace,New Orleans,Louisiana|Systems Administrator III|3/12/1921|
 | fey kloss|52|married|fkloss9@godaddy.com|808-177-0318|8976 Jackson Park,Honolulu,Hawaii|Chemical Engineer|11/5/2014|
 
+
+
+#### Set upper for full_name column
+```SQL
+Update  club_member_info_cleaned 
+set full_name = UPPER(full_name);
+```
+
+#### Remove blank letter
+
+```SQL
+Update  club_member_info_cleaned 
+set full_name = TRIM(full_name);
+```
