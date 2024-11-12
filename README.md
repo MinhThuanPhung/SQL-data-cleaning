@@ -10,8 +10,6 @@ SELECT * from club_member_info cmi limit 10;
 
 
 
-
-
 |full_name|age|martial_status|email|phone|full_address|job_title|membership_date|
 |---------|---|--------------|-----|-----|------------|---------|---------------|
 |addie lush|40|married|alush0@shutterfly.com|254-389-8708|3226 Eastlawn Pass,Temple,Texas|Assistant Professor|7/31/2013|
@@ -29,27 +27,44 @@ SELECT * from club_member_info cmi limit 10;
 
 #### Set upper for full_name column
 ```SQL
-Update  club_member_info_cleaned 
-set full_name = UPPER(full_name);
+UPDATE club_member_info_cleanedfinal 
+set full_name =UPPER(full_name);
 ```
 
 #### Remove blank letter
 
 ```SQL
-Update  club_member_info_cleaned 
-set full_name = TRIM(full_name);
+UPDATE club_member_info_cleanedfinal 
+set full_name = trim(full_name);
 ```
 
-#### Update blank martial_status by Null
+#### Calculate mode of age
 ```SQL
-Update club_member_info_cleaned 
-set martial_status = 'NULL' WHERE martial_status =''
+Select mode(age) from club_member_info_cleanedfinal cmic 
 ```
 
-#### update blank job_title as Null
+#### Update empty and outliers age column by mode of age
 ```SQL
-Update club_member_info_cleaned 
-set job_title = 'NULL' WHERE martial_status =''
+UPDATE club_member_info_cleanedfinal 
+set age = 40
+where age > 100 or age ="";
 ```
-
+#### Find mode of martial_Status 
+```SQL
+SELECT  martial_status, COUNT(martial_status) as total
+FROM club_member_info_cleanedfinal cmic
+Group by martial_status
+```
+#### Update empty cell in Job_title = null
+---SQL
+UPDATE club_member_info_cleanedfinal 
+set job_title = 'Null'
+where job_title = ""
+```
+#### Update empty cells in phone = null
+```sql
+UPDATE club_member_info_cleanedfinal 
+set phone = 'Null'
+where phone = ""
+```
 
