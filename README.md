@@ -53,19 +53,19 @@ where age > 100 or age ="";
 ```SQL
 SELECT  martial_status, COUNT(martial_status) as total
 FROM club_member_info_cleanedfinal cmic
-Group by martial_status
+Group by martial_status;
 ```
 #### Update empty cell in Job_title = null
 ```SQL
 UPDATE club_member_info_cleanedfinal 
 set job_title = 'Null'
-where job_title = ""
+where job_title = "";
 ```
 #### Update empty cells in phone = null
 ```sql
 UPDATE club_member_info_cleanedfinal 
 set phone = 'Null'
-where phone = ""
+where phone = "";
 ```
 
 ### Data after cleaned
