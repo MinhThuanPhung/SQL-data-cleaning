@@ -70,7 +70,7 @@ where phone = "";
 
 ### Data after cleaned
 ```sql
-SELECT * from club_member_info_cleanedfina limit 10;
+SELECT * from club_member_info_cleanedfinal cmic limit 10;
 ```
 
 |full_name|age|martial_status|email|phone|full_address|job_title|membership_date|
