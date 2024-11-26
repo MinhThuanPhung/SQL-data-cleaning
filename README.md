@@ -37,6 +37,46 @@ set full_name =UPPER(full_name);
 UPDATE club_member_info_cleanedfinal 
 set full_name = trim(full_name);
 ```
+#### Count duplicate email in this table 
+```sql 
+SELECT count (*)
+FROM (
+SELECT *
+FROM club_member_info_cleanedfinal cmic 
+GROUP BY email
+Having COUNT(*) >1)
+```
+Result 
+
+|count (*)|
+|---------|
+|9|
+
+#### list of  Duplicate email 
+
+```SQL
+SELECT email
+FROM club_member_info_cleanedfinal cmic 
+GROUP BY email
+Having COUNT(*) >1)
+```
+Result
+
+|email|
+|-----|
+|ehuxterm0@marketwatch.com|
+|gprewettfl@mac.com|
+|greglar4r@answers.com|
+|hbradenri@freewebs.com|
+|mmorralleemj@wordpress.com|
+|nfilliskirkd5@newsvine.com|
+|omaccaughen1o@naver.com|
+|slamble81@amazon.co.uk|
+|tdunkersley8u@dedecms.com|
+
+#### Remove duplicate from this table 
+
+
 
 #### Calculate mode of age
 ```SQL
@@ -67,6 +107,11 @@ UPDATE club_member_info_cleanedfinal
 set phone = 'Null'
 where phone = "";
 ```
+
+
+
+
+
 
 ### Data after cleaned
 ```sql
